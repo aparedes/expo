@@ -32,34 +32,33 @@ You can configure development client launcher using its built-in [config plugin]
 
 <ConfigPluginExample>
 
-  ```json app.json
-  {
-    "expo": {
-      "plugins": [
-        [
-          "expo-dev-launcher",
-          {
-            "launchModeExperimental": "most-recent"
-          }
-        ]
+```json app.json
+{
+  "expo": {
+    "plugins": [
+      [
+        "expo-dev-launcher",
+        {
+          "launchMode": "most-recent"
+        }
       ]
-    }
+    ]
   }
-  ```
+}
+```
 
 </ConfigPluginExample>
 
 <ConfigPluginProperties
   properties={[
     {
-      name: 'launchModeExperimental',
+      name: 'launchMode',
       description: [
         "Determines whether to launch the most recently opened project or navigate to the launcher screen.",
         "* `'most-recent'` - Attempt to launch directly into a previously opened project and if unable to connect, fall back to the launcher screen.",
         "* `'launcher'` - Opens the launcher screen."
       ].join('\n'),
       default: '"most-recent"',
-      experimental: true,
     },
   ]}
 />
