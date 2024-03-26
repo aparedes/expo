@@ -47,7 +47,7 @@ export declare class VideoPlayer extends SharedObject<VideoPlayerEvents> {
      * Indicates the current status of the player.
      * > This property is get-only
      */
-    status: PlayerStatus;
+    status: VideoPlayerStatus;
     /**
      * Determines whether the player should continue playing after the app enters the background.
      * @default false
@@ -82,7 +82,7 @@ export declare class VideoPlayer extends SharedObject<VideoPlayerEvents> {
  * - `cover`: The video maintains its aspect ratio and covers the entire container, potentially cropping some portions.
  * - `fill`: The video stretches/squeezes to completely fill the container, potentially causing distortion.
  */
-type VideoContentFit = 'contain' | 'cover' | 'fill';
+export type VideoContentFit = 'contain' | 'cover' | 'fill';
 /**
  * Describes the current status of the player.
  * - `idle`: The player is not playing or loading any videos.
@@ -90,7 +90,7 @@ type VideoContentFit = 'contain' | 'cover' | 'fill';
  * - `readyToPlay`: The player has loaded enough data to start playing or to continue playback.
  * - `error`: The player has encountered an error while loading or playing the video.
  */
-export type PlayerStatus = 'idle' | 'loading' | 'readyToPlay' | 'error';
+export type VideoPlayerStatus = 'idle' | 'loading' | 'readyToPlay' | 'error';
 export interface VideoViewProps extends ViewProps {
     /**
      * A player instance – use `useVideoPlayer()` to create one.
@@ -210,7 +210,7 @@ export type VideoPlayerEvents = {
     /**
      * Handler for an event emitted when the status of the player changes.
      */
-    statusChange: (newStatus: PlayerStatus, oldStatus: PlayerStatus, error: PlayerError) => void;
+    statusChange: (newStatus: VideoPlayerStatus, oldStatus: VideoPlayerStatus, error: PlayerError) => void;
     /**
      * Handler for an event emitted when the player starts or stops playback.
      */

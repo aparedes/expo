@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, forwardRef, useImperativeHandle, useMemo } from 'react';
 import { StyleSheet } from 'react-native';
 
-import { PlayerStatus, VideoPlayer, VideoSource, VideoViewProps } from './VideoView.types';
+import { VideoPlayerStatus, VideoPlayer, VideoSource, VideoViewProps } from './VideoView.types';
 /**
  * This audio context is used to mute all but one video when multiple video views are playing from one player simultaneously.
  * Using audio context nodes allows muting videos without displaying the mute icon in the video player.
@@ -30,7 +30,7 @@ class VideoPlayerWeb implements VideoPlayer {
   _loop: boolean = false;
   _playbackRate: number = 1.0;
   _preservesPitch: boolean = true;
-  _status: PlayerStatus = 'idle';
+  _status: VideoPlayerStatus = 'idle';
   staysActiveInBackground: boolean = false; // Not supported on web. Dummy to match the interface.
 
   set muted(value: boolean) {
@@ -99,7 +99,7 @@ class VideoPlayerWeb implements VideoPlayer {
     this._preservesPitch = value;
   }
 
-  get status(): PlayerStatus {
+  get status(): VideoPlayerStatus {
     return this._status;
   }
 

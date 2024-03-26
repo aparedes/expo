@@ -1,5 +1,5 @@
 import React from 'react';
-import { PlayerStatus, VideoPlayer, VideoSource, VideoViewProps } from './VideoView.types';
+import { VideoPlayerStatus, VideoPlayer, VideoSource, VideoViewProps } from './VideoView.types';
 declare class VideoPlayerWeb implements VideoPlayer {
     constructor(source: VideoSource);
     src: VideoSource;
@@ -11,7 +11,7 @@ declare class VideoPlayerWeb implements VideoPlayer {
     _loop: boolean;
     _playbackRate: number;
     _preservesPitch: boolean;
-    _status: PlayerStatus;
+    _status: VideoPlayerStatus;
     staysActiveInBackground: boolean;
     set muted(value: boolean);
     get muted(): boolean;
@@ -25,7 +25,7 @@ declare class VideoPlayerWeb implements VideoPlayer {
     set currentTime(value: number);
     get preservesPitch(): boolean;
     set preservesPitch(value: boolean);
-    get status(): PlayerStatus;
+    get status(): VideoPlayerStatus;
     mountVideoView(video: HTMLVideoElement): void;
     unmountVideoView(video: HTMLVideoElement): void;
     play(): void;
